@@ -159,5 +159,5 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-Entregable 1\AllTrips.csv
-Entregable 1\chip_dataset.csv
+Entregable 1/AllTrips.csv
+Entregable 1/chip_dataset.csv
