@@ -161,3 +161,6 @@ cython_debug/
 
 Entregable 1/AllTrips.csv
 Entregable 1/chip_dataset.csv
+Proyecto Final/ProyectoFinal_IA/panns_perRow.pickle
+Proyecto Final/ProyectoFinal_IA/vgg_perRow.pickle
+Proyecto Final/ProyectoFinal_IA/yamn_perRow.pickle
