@@ -20,10 +20,6 @@ def adam(objective, derivative, bounds, n_iter, alpha, eps=1e-8):
     # Generate an initial point
     x = bounds[:, 0] + rand(len(bounds)) * (bounds[:, 1] - bounds[:, 0])
 
-    # Initialize the first and second moments
-    m = [0.0 for _ in range(bounds.shape[0])]
-    v = [0.0 for _ in range(bounds.shape[0])]
-
     # Update the gradient descent
     for t in range(n_iter):
         # Calculate the gradient
@@ -31,15 +27,6 @@ def adam(objective, derivative, bounds, n_iter, alpha, eps=1e-8):
 
         # Construct the solution one variable at a time
         for i in range(bounds.shape[0]):
-            # Update the first moment
-            #m[i] = beta1 * m[i] + (1.0 - beta1) * g[i]
-
-            # Update the second moment
-            #v[i] = beta2 * v[i] + (1.0 - beta2) * g[i] ** 2
-
-            # Compute the bias-corrected first and second moments
-            #mhat = m[i] / (1 - beta1 ** (t + 1))
-            #vhat = v[i] / (1 - beta2 ** (t + 1))
 
             # Update the solution
             x[i] = x[i] - alpha * g[i] # mhat / (sqrt(vhat) + eps)
@@ -60,10 +47,8 @@ if __name__ == '__main__':
     bounds = asarray([[-1., 2.], [-1., 1.]])
     n_iter = 600  # Total iterations
     alpha = 0.02  # Step size
-    #beta1 = 0.8  # Gradient mean factor
-    #beta2 = 0.999  # Gradient square mean factor
 
-    solutions = adam(objective, derivative, bounds, n_iter, alpha) #, beta1, beta2)
+    solutions = adam(objective, derivative, bounds, n_iter, alpha)
 
     # Plot the solutions
     plot2d(bounds, objective, solutions)
